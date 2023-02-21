@@ -1,6 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    session_start();
+    ?>
+
     <!-- ========== Meta Tags ========== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +13,7 @@
     <meta name="description" content="Vifolio - Creative Minimal Portfolio Template">
 
     <!-- ========== Page Title ========== -->
-   <title>ABDULLAH AL BASHIR</title>
+    <title>ABDULLAH AL BASHIR</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -71,16 +76,27 @@
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
+                    <!--  <li>
+                        <a href="critics.html">CRITICS</a>
+                      </li>-->
+                    <!--  <li>
+                        <a href="photography.html">PHOTOGRAPHY</a>
+                      </li>
+                      <li>
+                        <a href="videography.html">VIDEOGRAPHY</a>
+                      </li>-->
                     <li>
                         <a href="news.html">NEWS</a>
                     </li>
+                    <!-- <li>
+                       <a href="dhaka-watercolor.html">DHAKA WATERCOLOUR ACADEMY</a>
+                     </li>-->
                     <li>
-                        <a href="contact.php">CONTACT</a>
+                        <a href="contact.html">CONTACT</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
-
     </nav>
     <!-- End Navigation -->
 
@@ -93,7 +109,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Exhibition</h1>
+                <h1>Contact</h1>
             </div>
         </div>
     </div>
@@ -108,7 +124,7 @@
             <div class="col-md-12">
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Exhibition</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -116,59 +132,105 @@
 </div>
 <!-- End Breadcrumb Banner -->
 
-<!--start section-->
-<div class="container">
-    <div class="row" style="    margin-bottom: 31px;">
-        <div class="col-md-6">
-            <div class="pf-item ">
-                <div class="effect-left-swipe">
-                    <img src="assets/img/blog/1.jpg" alt="thumb">
-                    <a href="assets/img/blog/1.jpg" class="item popup-link"><i class="fa fa-expand"></i></a>
-                    <div class="icons">
-                        <h4><a href="portfolio-details.html">Creative Studio</a></h4>
-                        <div class="cat">
-                            <span>Creative</span>
-                            <span>Minimal</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="pf-item">
-                <div class="effect-left-swipe">
-                    <img src="assets/img/blog/2.jpg" alt="thumb">
-                    <a href="assets/img/blog/2.jpg" class="item popup-link"><i class="fa fa-expand"></i></a>
-                    <div class="icons">
-                        <h4><a href="portfolio-details.html">Creative Studio</a></h4>
-                        <div class="cat">
-                            <span>Creative</span>
-                            <span>Minimal</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-</div>
-
-
-
-
-
-
-<!--start section-->
-
-
-
-
-
-
-<!-- Start Footer
+<!-- Start Contact
 ============================================= -->
-<footer class="text-center bg-dark text-light">
+<div class="contact-area default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 address-info left-info">
+                <h2>Contact Info</h2>
+                <ul>
+                    <!-- <li>
+                       <i class="fas fa-map-marker-alt"></i>
+                       <p>
+                         Our Location
+                         <span>Alexima, NT 456678</span>
+                       </p>
+                     </li>-->
+                    <li>
+                        <i class="fas fa-envelope-open"></i>
+                        <p>
+                            Send Us Mail
+                            <span> bashir307@gmail.com</span>
+                        </p>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>
+                            Call Us
+                            <span>+(880) 171-725-4538</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Start Contact Form -->
+            <div class="col-md-7 right-info">
+                <div class="content">
+                    <h2>Stay in touch.</h2>
+                    <h4>Feel free to contact us for any project, idea, collaboration or simply say hi.</h4>
+                    <?php
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Success!</strong> Data inserted successfully.
+                        </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                    ?>
+                    <form action="insert_contact_data.php" method="post">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group">
+                                    <input class="form-control" id="email" name="email" placeholder="Email*"
+                                           type="email">
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group">
+                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
+                                    <span class="alert-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group comments">
+                                    <textarea class="form-control" id="comments" name="comments"
+                                              placeholder="message" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <button type="submit" class="btn btn-success" name="contact" id="submit">
+                                    Send Message <i class="fa fa-paper-plane"></i>
+                                </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Contact Form -->
+        </div>
+    </div>
+</div>
+<!-- End Contact -->
+
+
+<footer class="text-center bg-dark text-light" style="margin-top: 100px;">
     <div class="container">
         <div class="row">
             <!--<div class="col-md-3 logo text-left">
@@ -213,7 +275,6 @@
         </div>
     </div>
 </footer>
-
 <!-- jQuery Frameworks
 ============================================= -->
 <script src="assets/js/jquery-1.12.4.min.js"></script>
