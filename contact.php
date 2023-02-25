@@ -70,7 +70,7 @@
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.html">ARTWORKS FOR SALE</a>
+                        <a href="artwork.php">ARTWORKS FOR SALE</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
@@ -232,9 +232,9 @@
 <footer class="text-center bg-dark text-light" style="margin-top: 100px;">
     <div class="container">
         <div class="row">
-            <!--<div class="col-md-3 logo text-left">
+            <div class="col-md-3 logo text-left">
                 <img src="assets/img/logo-light.png" alt="Logo">
-            </div>-->
+            </div>
 
             <div class="col-md-6 menu text-center">
                 <ul>
@@ -245,7 +245,7 @@
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.html">ARTWORKS FOR SALE</a>
+                        <a href="artwork.php">ARTWORKS FOR SALE</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
