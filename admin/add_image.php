@@ -1,23 +1,24 @@
 <?php
+session_start();
 include("../config/dbconfig.php");
 $result = 0;
-if (isset($_POST['add_image'])){
-    $name = mysqli_real_escape_string($connection,$_POST['image_name']);
-    $image_price = mysqli_real_escape_string($connection,$_POST['image_price']);
-    $category_id = mysqli_real_escape_string($connection,$_POST['category_id']);
+if (isset($_POST['add_image'])) {
+    $name = mysqli_real_escape_string($connection, $_POST['image_name']);
+    $image_price = mysqli_real_escape_string($connection, $_POST['image_price']);
+    $category_id = mysqli_real_escape_string($connection, $_POST['category_id']);
     $c_image = $_FILES['image']['name'];
     $image = "../assets/img/art_works/$c_image";
-    $c_image_temp=$_FILES['image']['tmp_name'];
-    $imageFileType = strtolower(pathinfo($c_image,PATHINFO_EXTENSION));
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ){
+    $c_image_temp = $_FILES['image']['tmp_name'];
+    $imageFileType = strtolower(pathinfo($c_image, PATHINFO_EXTENSION));
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
         echo "wrong file extension";
-    }else{
-        if(move_uploaded_file($c_image_temp , "../assets/img/art_works/$c_image")){
+    } else {
+        if (move_uploaded_file($c_image_temp, "../assets/img/art_works/$c_image")) {
             $insert_job = $connection->query("INSERT INTO `port_image`(`category_id`, `image_name`, `price`, `image`) VALUES ('$category_id','$name','$image_price','$c_image')");
-            if($insert_job){
-               $result = 1;
-            }else{
+            if ($insert_job) {
+                $result = 1;
+            } else {
                 $result = 2;
             }
         }
@@ -173,13 +174,13 @@ if (isset($_POST['add_image'])){
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                     </svg>
-                    <strong>Success!</strong> Sub Category Insert Successful.
+                    <strong>Success!</strong> Image Insert Successful.
                     <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
                                     class="mdi mdi-close"></i></span>
                     </button>
                 </div>
                 <?php
-            } elseif ($result == 2) {
+            } elseif ($result==2) {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
@@ -195,6 +196,21 @@ if (isset($_POST['add_image'])){
                     </button>
                 </div>
                 <?php
+            } elseif (isset($_SESSION['status'])){
+                ?>
+                <div class="alert alert-success alert-dismissible fade show">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                    <strong>Success!</strong> Data Update Successful.
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                                    class="mdi mdi-close"></i></span>
+                    </button>
+                </div>
+                <?php
+                unset($_SESSION['status']);
             }
             ?>
 
@@ -214,7 +230,8 @@ if (isset($_POST['add_image'])){
                                                 <label class="input-group-text">Category</label>
                                             </div>
                                             <div class="dropdown bootstrap-select default-select">
-                                                <select class="default-select" tabindex="-98" name="category_id" required>
+                                                <select class="default-select" tabindex="-98" name="category_id"
+                                                        required>
                                                     <option disabled>Choose...</option>
                                                     <?php
                                                     $category_fetch = $connection->query("SELECT `id`, `category_name` FROM `category`");
@@ -246,11 +263,13 @@ if (isset($_POST['add_image'])){
                                         <div>
                                             <div class="form-row align-items-center">
                                                 <div class="col-auto">
-                                                    <input type="text" name="image_name" class="form-control mb-2" placeholder="Image Name">
+                                                    <input type="text" name="image_name" class="form-control mb-2"
+                                                           placeholder="Image Name">
                                                 </div>
                                                 <div class="col-auto">
                                                     <div class="input-group mb-2">
-                                                        <input type="number" name="image_price" class="form-control" placeholder="Image Price">
+                                                        <input type="number" name="image_price" class="form-control"
+                                                               placeholder="Image Price">
                                                     </div>
                                                 </div>
                                             </div>
@@ -267,54 +286,60 @@ if (isset($_POST['add_image'])){
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Profile Datatable</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="example3" class="display min-w850">
-                                        <thead>
-                                        <tr>
-                                            <th>SL NO</th>
-                                            <th>Category Name</th>
-                                            <th>Sub Category Name</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-                                        $fetch_subcat = $connection->query("SELECT sub_category.id,sub_category.sub_category_name,category.category_name FROM `sub_category`,category WHERE sub_category.category_id = category.id ORDER BY sub_category.id DESC;");
-                                        if ($fetch_subcat->num_rows > 0) {
-                                            $sl = 1;
-                                            while ($data = mysqli_fetch_assoc($fetch_subcat)) {
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $sl; ?></td>
-                                                    <td><?php echo $data['category_name']; ?></td>
-                                                    <td><?php echo $data['sub_category_name']; ?></td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="#"
-                                                               class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                                        class="fa fa-pencil"></i></a>
-                                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                                        class="fa fa-trash"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                $sl++;
-                                            }
-                                        }
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Image Data</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example3" class="display min-w850">
+                                    <thead>
+                                    <tr>
+                                        <th>Sl No</th>
+                                        <th>Image Title</th>
+                                        <th>Image Price</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                     $image_fetch=$connection->query("SELECT * FROM `port_image` order by id desc ");
+                                     if($image_fetch->num_rows > 0){
+                                         $sl = 1;
+                                         while ($data = mysqli_fetch_assoc($image_fetch)){
+                                             ?>
+                                             <tr>
+                                                 <td><?php echo $sl;?></td>
+                                                 <td><?php echo $data ['image_name'];?></td>
+                                                 <td><?php echo $data ['price'];?></td>
+                                                 <td><img class="" width="35" src="../<?php echo $data['image'];?>" alt=""></td>
+                                                 <td>
+                                                     <div class="d-flex">
+                                                         <a href="update.php?id=<?php echo $data ['id'];?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                                     class="fa fa-pencil"></i></a>
+                                                         <a href="delete.php?id=<?php echo $data ['id'];?>" class="btn btn-danger shadow btn-xs sharp"><i
+                                                                     class="fa fa-trash"></i></a>
+                                                     </div>
+                                                 </td>
+                                             </tr>
+                                             <?php
+                                             $sl++;
+                                         }
+                                     }
 
-                                        ?>
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
+
+                                    ?>
+
+
+
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
