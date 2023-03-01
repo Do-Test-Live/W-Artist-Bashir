@@ -211,8 +211,27 @@ if (isset($_POST['add_image'])) {
                 </div>
                 <?php
                 unset($_SESSION['status']);
+            } elseif (isset($_SESSION ['delete'])){
+            ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <strong>Success!</strong> Data Delete Successful.
+                <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i
+                                class="mdi mdi-close"></i></span>
+                </button>
+            </div>
+            <?php
+            unset($_SESSION['delete']);
             }
             ?>
+
+
+
+
 
             <!-- row -->
             <div class="row">
@@ -320,20 +339,17 @@ if (isset($_POST['add_image'])) {
                                                      <div class="d-flex">
                                                          <a href="update.php?id=<?php echo $data ['id'];?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                                      class="fa fa-pencil"></i></a>
-                                                         <a href="delete.php?id=<?php echo $data ['id'];?>" class="btn btn-danger shadow btn-xs sharp"><i
-                                                                     class="fa fa-trash"></i></a>
+                                                         <button class="btn btn-danger shadow btn-xs sharp" onClick="dlt();"><i
+                                                                     class="fa fa-trash"></i></button>
                                                      </div>
                                                  </td>
+                                                 <input type="hidden" value="<?php echo $data ['id']?>" id="data_id">
                                              </tr>
                                              <?php
                                              $sl++;
                                          }
                                      }
-
-
-
-
-                                    ?>
+                                     ?>
 
 
 
@@ -345,6 +361,33 @@ if (isset($_POST['add_image'])) {
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+
+       <!-- modal area start-->
+        <div class="modal" tabindex="-1" role="dialog" id="dlt_modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="delete.php" method="post">
+                        <div class="modal-body">
+                            <p>Do You Want To Delete This Data ??</p>
+                        </div>
+                        <input type="hidden" name="deletdata" class="form-control"
+                               value="" id="modalinput">
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger" name="confirm_dlt">Yes</button>
+                            <button type="button" class="btn btn-primary" onClick="close_modal();" data-dismiss="modal">No</button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
@@ -383,6 +426,20 @@ if (isset($_POST['add_image'])) {
     Scripts
 ***********************************-->
 <!-- Required vendors -->
+
+<script>
+    function dlt(){
+        document.getElementById("dlt_modal").style.display = "block";
+        let id = document.getElementById("data_id").value;
+        document.getElementById("modalinput").value = id;
+
+    }
+
+    function close_modal(){
+        document.getElementById("dlt_modal").style.display = "none";
+    }
+
+</script>
 <script src="vendor/global/global.min.js"></script>
 <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="js/custom.min.js"></script>
