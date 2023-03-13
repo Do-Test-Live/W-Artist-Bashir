@@ -128,7 +128,7 @@ include ('config/dbconfig.php');
                     <div class="mix-item-menu text-left">
                         <button class="active" data-filter="*">All</button>
                         <?php
-                        $fatch_category=$connection->query("SELECT * FROM `category`");
+                        $fatch_category=$connection->query("SELECT * FROM `category`  order by id desc ");
                         if($fatch_category->num_rows >0){
                             while ($category=mysqli_fetch_assoc($fatch_category)){
                                 ?>
@@ -149,7 +149,7 @@ include ('config/dbconfig.php');
                         <div id="portfolio-grid" class="portfolio-items col-3">
 
                             <?php
-                            $fatch_image= $connection->query("SELECT * FROM `port_image`");
+                            $fatch_image= $connection->query("SELECT * FROM `port_image`order by category_id desc");
                             if($fatch_image->num_rows > 0){
                                 while ($data=mysqli_fetch_assoc( $fatch_image)){
                                     ?>
