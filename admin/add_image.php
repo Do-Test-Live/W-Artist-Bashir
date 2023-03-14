@@ -7,7 +7,7 @@ if (isset($_POST['add_image'])) {
     $image_price = mysqli_real_escape_string($connection, $_POST['image_price']);
     $category_id = mysqli_real_escape_string($connection, $_POST['category_id']);
     $c_image = $_FILES['image']['name'];
-    $image = "../assets/img/art_works/$c_image";
+    $image = "assets/img/art_works/$c_image";
     $c_image_temp = $_FILES['image']['tmp_name'];
     $imageFileType = strtolower(pathinfo($c_image, PATHINFO_EXTENSION));
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -15,7 +15,7 @@ if (isset($_POST['add_image'])) {
         echo "wrong file extension";
     } else {
         if (move_uploaded_file($c_image_temp, "../assets/img/art_works/$c_image")) {
-            $insert_job = $connection->query("INSERT INTO `port_image`(`category_id`, `image_name`, `price`, `image`) VALUES ('$category_id','$name','$image_price','$c_image')");
+            $insert_job = $connection->query("INSERT INTO `port_image`(`category_id`, `image_name`, `price`, `image`) VALUES ('$category_id','$name','$image_price','$image')");
             if ($insert_job) {
                 $result = 1;
             } else {

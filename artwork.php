@@ -68,13 +68,16 @@ include ('config/dbconfig.php');
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.html">ARTWORKS FOR SALE</a>
+                        <a href="artwork.html">ARTWORKS</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
                         <a href="news.html">NEWS</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
@@ -95,7 +98,7 @@ include ('config/dbconfig.php');
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Artworks For Sale</h1>
+                <h1>Artworks</h1>
             </div>
         </div>
     </div>
@@ -110,7 +113,7 @@ include ('config/dbconfig.php');
             <div class="col-md-12">
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Artworks For Sale</a></li>
+                    <li><a href="#">Artworks</a></li>
                 </ul>
             </div>
         </div>
@@ -149,7 +152,7 @@ include ('config/dbconfig.php');
                         <div id="portfolio-grid" class="portfolio-items col-3">
 
                             <?php
-                            $fatch_image= $connection->query("SELECT * FROM `port_image`order by category_id desc");
+                            $fatch_image= $connection->query("SELECT * FROM `port_image`order by id desc");
                             if($fatch_image->num_rows > 0){
                                 while ($data=mysqli_fetch_assoc( $fatch_image)){
                                     ?>
@@ -215,13 +218,16 @@ include ('config/dbconfig.php');
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.html">ARTWORKS FOR SALE</a>
+                        <a href="artwork.html">ARTWORKS</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
                         <a href="news.html">NEWS</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>

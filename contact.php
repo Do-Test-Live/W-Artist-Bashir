@@ -70,7 +70,7 @@
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.php">ARTWORKS FOR SALE</a>
+                        <a href="artwork.php">ARTWORKS</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
@@ -86,6 +86,9 @@
                       </li>-->
                     <li>
                         <a href="news.html">NEWS</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <!-- <li>
                        <a href="dhaka-watercolor.html">DHAKA WATERCOLOUR ACADEMY</a>
@@ -245,13 +248,16 @@
                         <a href="about.html">ABOUT THE ARTIST</a>
                     </li>
                     <li>
-                        <a href="artwork.php">ARTWORKS FOR SALE</a>
+                        <a href="artwork.php">ARTWORKS</a>
                     </li>
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
                         <a href="news.html">NEWS</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
