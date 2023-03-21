@@ -75,24 +75,12 @@
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
-                    <!--  <li>
-                        <a href="critics.html">CRITICS</a>
-                      </li>-->
-                    <!--  <li>
-                        <a href="photography.html">PHOTOGRAPHY</a>
-                      </li>
-                      <li>
-                        <a href="videography.html">VIDEOGRAPHY</a>
-                      </li>-->
-                    <li>
-                        <a href="news.html">NEWS</a>
-                    </li>
                     <li>
                         <a href="gallery.html">GALLERY</a>
                     </li>
-                    <!-- <li>
-                       <a href="dhaka-watercolor.html">DHAKA WATERCOLOUR ACADEMY</a>
-                     </li>-->
+                    <li>
+                        <a href="news.html">NEWS</a>
+                    </li>
                     <li>
                         <a href="contact.html">CONTACT</a>
                     </li>
@@ -254,10 +242,10 @@
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
@@ -267,7 +255,7 @@
             <div class="col-md-3 footer-social text-right">
                 <ul>
                     <li class="facebook">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/abdullah.a.bashir"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="twitter">
                         <a href="#"><i class="fab fa-instagram"></i></a>

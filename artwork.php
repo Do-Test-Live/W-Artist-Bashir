@@ -74,10 +74,10 @@ include ('config/dbconfig.php');
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
@@ -131,7 +131,7 @@ include ('config/dbconfig.php');
                     <div class="mix-item-menu text-left">
                         <button class="active" data-filter="*">All</button>
                         <?php
-                        $fatch_category=$connection->query("SELECT * FROM `category`  order by id desc ");
+                        $fatch_category=$connection->query("SELECT * FROM `category` WHERE status = 1 order by id DESC;");
                         if($fatch_category->num_rows >0){
                             while ($category=mysqli_fetch_assoc($fatch_category)){
                                 ?>
@@ -224,10 +224,10 @@ include ('config/dbconfig.php');
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>

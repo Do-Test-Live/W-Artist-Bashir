@@ -8,15 +8,11 @@
             </li>
         </ul>
         <ul class="metismenu" id="menu">
-            <li><a class="ai-icon" href="sub_category.php" aria-expanded="false">
+            <li><a class="ai-icon" href="add_image.php" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
-                    <span class="nav-text">Sub Category</span>
+                    <span class="nav-text">Artwork</span>
                 </a>
             </li>
         </ul>
-
-        <div class="copyright">
-            <p><strong>Copyright</strong> © Your Company Name</p>
-        </div>
     </div>
 </div>
