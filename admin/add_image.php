@@ -34,7 +34,7 @@ if (isset($_POST['add_image'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Your Company Name</title>
+    <title>Abdullah Al Bashir</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Datatable -->
@@ -74,7 +74,7 @@ if (isset($_POST['add_image'])) {
     <div class="nav-header">
         <a href="index.html" class="brand-logo">
             <div class="mr-auto">
-                <h2 class="text-black font-w600">Your Logo</h2>
+                <h2 class="text-black font-w600">Artist Bashir</h2>
             </div>
         </a>
 
@@ -92,7 +92,7 @@ if (isset($_POST['add_image'])) {
     <!--**********************************
         Header start
     ***********************************-->
-    <div class="header">
+   <div class="header">
         <div class="header-content">
             <nav class="navbar navbar-expand">
                 <div class="collapse navbar-collapse justify-content-between">
@@ -105,7 +105,7 @@ if (isset($_POST['add_image'])) {
                                 </div> -->
                                 <img src="images/profile/17.jpg" width="20" alt=""/>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right">
+                          <!--  <div class="dropdown-menu dropdown-menu-right">
                                 <a href="app-profile.html" class="dropdown-item ai-icon">
                                     <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
                                          width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -124,7 +124,7 @@ if (isset($_POST['add_image'])) {
                                     </svg>
                                     <span class="ml-2">Inbox </span>
                                 </a>
-                                <a href="page-login.html" class="dropdown-item ai-icon">
+                                <a href="index.php" class="dropdown-item ai-icon">
                                     <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
                                          width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -134,7 +134,7 @@ if (isset($_POST['add_image'])) {
                                     </svg>
                                     <span class="ml-2">Logout </span>
                                 </a>
-                            </div>
+                            </div>-->
                         </li>
                     </ul>
                 </div>

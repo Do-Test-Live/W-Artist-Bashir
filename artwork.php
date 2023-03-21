@@ -74,10 +74,10 @@ include ('config/dbconfig.php');
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
@@ -224,10 +224,10 @@ include ('config/dbconfig.php');
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>

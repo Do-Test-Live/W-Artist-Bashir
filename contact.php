@@ -75,24 +75,12 @@
                     <li>
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
-                    <!--  <li>
-                        <a href="critics.html">CRITICS</a>
-                      </li>-->
-                    <!--  <li>
-                        <a href="photography.html">PHOTOGRAPHY</a>
-                      </li>
-                      <li>
-                        <a href="videography.html">VIDEOGRAPHY</a>
-                      </li>-->
-                    <li>
-                        <a href="news.html">NEWS</a>
-                    </li>
                     <li>
                         <a href="gallery.html">GALLERY</a>
                     </li>
-                    <!-- <li>
-                       <a href="dhaka-watercolor.html">DHAKA WATERCOLOUR ACADEMY</a>
-                     </li>-->
+                    <li>
+                        <a href="news.html">NEWS</a>
+                    </li>
                     <li>
                         <a href="contact.html">CONTACT</a>
                     </li>
@@ -254,10 +242,10 @@
                         <a href="exibition.html">EXHIBITION</a>
                     </li>
                     <li>
-                        <a href="news.html">NEWS</a>
+                        <a href="gallery.html">GALLERY</a>
                     </li>
                     <li>
-                        <a href="gallery.html">GALLERY</a>
+                        <a href="news.html">NEWS</a>
                     </li>
                     <li>
                         <a href="contact.php">CONTACT</a>
