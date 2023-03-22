@@ -6,7 +6,8 @@ if (isset($_POST['submit'])) {
     $query = $connection->query("SELECT * FROM `login` WHERE email='$email'and password='$password'");
 
     if($query->num_rows == '1'){
-        $_SESSION['status'] = 'success';
+        session_start();
+        $_SESSION['login_status'] = 'active';
         header('Location: category.php');
     }
 }

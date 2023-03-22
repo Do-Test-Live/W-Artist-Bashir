@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['login_status'])){
+    header("Location: index.php");
+}
 include ("../config/dbconfig.php");
 $result = 0;
 if(isset($_POST['category_submit'])){
@@ -201,7 +205,7 @@ if(isset($_POST['category_submit'])){
                                     <tr>
                                         <th>SL NO</th>
                                         <th>Category Name</th>
-                                        <th>Action</th>
+                                        <!--<th>Action</th>-->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -214,12 +218,12 @@ if(isset($_POST['category_submit'])){
                                             <tr>
                                                 <td><?php echo $sl; ?></td>
                                                 <td><?php echo $data['category_name'];?></td>
-                                                <td>
+                                               <!-- <td>
                                                     <div class="d-flex">
                                                         <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                         <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
-                                                </td>
+                                                </td>-->
                                             </tr>
                                             <?php
                                             $sl++;

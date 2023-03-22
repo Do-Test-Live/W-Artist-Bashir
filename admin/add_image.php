@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['login_status'])){
+    header("Location: index.php");
+}
 include("../config/dbconfig.php");
 $result = 0;
 if (isset($_POST['add_image'])) {
@@ -228,10 +231,6 @@ if (isset($_POST['add_image'])) {
             unset($_SESSION['delete']);
             }
             ?>
-
-
-
-
 
             <!-- row -->
             <div class="row">

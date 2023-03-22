@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['login_status'])){
+    header("Location: index.php");
+}
 include("../config/dbconfig.php");
 $result = 0;
 $id=$_GET['id'];
@@ -26,7 +29,7 @@ if (isset($_POST['update'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Your Company Name</title>
+    <title>Abdullah Al Bashir</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- Custom Stylesheet -->
@@ -64,7 +67,7 @@ if (isset($_POST['update'])) {
     <div class="nav-header">
         <a href="../index.html" class="brand-logo">
             <div class="mr-auto">
-                <h2 class="text-black font-w600">Your Logo</h2>
+                <h2 class="text-black font-w600">Artist Bashir</h2>
             </div>
         </a>
 
@@ -236,7 +239,7 @@ if (isset($_POST['update'])) {
 ***********************************-->
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © Your Company Name</p>
+        <p>Copyright © Abdullah Al Bashir</p>
     </div>
 </div>
 <!--**********************************
