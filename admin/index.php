@@ -6,8 +6,12 @@ if (isset($_POST['submit'])) {
     $query = $connection->query("SELECT * FROM `login` WHERE email='$email'and password='$password'");
 
     if($query->num_rows == '1'){
+<<<<<<< HEAD
         session_start();
         $_SESSION['login_status'] = 'active';
+=======
+        $_SESSION['status'] = 'success';
+>>>>>>> origin/main
         header('Location: category.php');
     }
 }
