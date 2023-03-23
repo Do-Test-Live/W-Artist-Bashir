@@ -152,7 +152,7 @@ include ('config/dbconfig.php');
                         <div id="portfolio-grid" class="portfolio-items col-3">
 
                             <?php
-                            $fatch_image= $connection->query("SELECT * FROM `port_image`order by id desc");
+                            $fatch_image= $connection->query("SELECT * FROM `port_image`,category WHERE category.id=port_image.category_id and category.status='1' order by port_image.id desc");
                             if($fatch_image->num_rows > 0){
                                 while ($data=mysqli_fetch_assoc( $fatch_image)){
                                     ?>
