@@ -188,11 +188,11 @@ include ('config/dbconfig.php');
                     </div>
                 </div>
             </div>
-            <div class="load-button text-center">
+           <!-- <div class="load-button text-center">
                 <div class="col-md-12">
                     <a href="#" class="btn btn-dark border btn-md">Load More <i class="fas fa-spinner"></i></a>
                 </div>
-            </div>
+            </div>-->
         </div>
         <!-- End Portfoio Row -->
     </div>
